@@ -64,7 +64,7 @@ public class Questions2 extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Correct answer selected");
-                score = (10 - wrong) * 10;
+                score = (score - (wrong * 10));
                 if (score < 0) {
                     score = 0;
                 }

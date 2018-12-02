@@ -5,67 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/orange"
-    tools:context=".MainActivity">
+    tools:context=".Score">
 
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="136dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="106dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="359dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
-
-    <EditText
-        android:id="@+id/title2"
-        android:layout_width="81dp"
-        android:layout_height="0dp"
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="106dp"
-        android:layout_marginBottom="359dp"
-        android:background="@null"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/Title2"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.748"
-        app:layout_constraintStart_toEndOf="@+id/title"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="151dp"
-        android:layout_height="117dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="316dp"
-        android:contentDescription="@string/Logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/title"
-        app:srcCompat="@drawable/cs125" />
-
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="159dp"
-        android:layout_marginTop="99dp"
-        android:layout_marginEnd="137dp"
-        android:layout_marginBottom="177dp"
-        android:text="@string/Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="125dp"
+            android:fontFamily="monospace"
+            android:text="Welcome to"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="113dp"
+            android:layout_height="128dp"
+            android:layout_alignTop="@+id/title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-40dp"
+            android:layout_marginEnd="113dp"
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/cs125" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="18dp"
+            android:fontFamily="monospace"
+            android:text="Prep App"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="134dp"
+            android:layout_marginBottom="166dp"
+            android:text="Start!" />
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

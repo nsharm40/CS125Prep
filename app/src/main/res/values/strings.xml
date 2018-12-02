@@ -4,8 +4,8 @@
     <string name="Logo">  Logo</string>
     <string name="Title2">  Prep App</string>
     <string name="Start">  Start</string>
-    <string name="Correct">  Correct</string>
-    <string name="Incorrect">  Incorrect</string>
+    <string name="Correct">\u0020Correct</string>
+    <string name="Incorrect">\u0020Incorrect</string>
     <string name="q2code">public boolean b(int number) {
   int[] arr = // Unknown list of elements
   for (int i = 0; i &lt; arr.length; i++) {
