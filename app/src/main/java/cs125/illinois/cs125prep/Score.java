@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Score extends AppCompatActivity {
-
+public class Score extends Questions {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,18 +16,18 @@ public class Score extends AppCompatActivity {
         TextView scoreResult = findViewById(R.id.scoreResult);
         TextView motive = findViewById(R.id.motive);
         ImageView pic = findViewById(R.id.finImage);
-        scoreResult.setText("You got a score of " + Questions2.score + " points!");
-        if (Questions2.score > 90) {
-            motive.setText("Geoff is pleased!");
+        scoreResult.setText("You got a score of " + score + " points!");
+        if (score > 90) {
+            motive.setText("You have pleased the CS125 gods!");
             pic.setImageResource(R.drawable.chuchu);
-        } else if (Questions2.score > 70) {
+        } else if (score > 70) {
             motive.setText("Keep it up! You're getting there!");
             pic.setImageResource(R.drawable.keep);
-        } else if (Questions2.score > 50) {
+        } else if (score > 50) {
             motive.setText("Time to revisit some slides!");
             pic.setImageResource(R.drawable.slides);
         } else {
-            motive.setText("You might want to spend some time in office horus!");
+            motive.setText("You might want to go to office horus...");
             pic.setImageResource(R.drawable.siebel);
         }
         final Button replay = findViewById(R.id.replay);

@@ -9,16 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Questions extends AppCompatActivity {
+public class Questions extends MainActivity {
 
     private static final String TAG = "CS125Prep:Questions";
-    public static int score;
     private int wrong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        score = 0;
         wrong = 0;
         setContentView(R.layout.activity_questions);
         final TextView answer = findViewById(R.id.answer);
@@ -49,7 +47,7 @@ public class Questions extends AppCompatActivity {
                 Log.d(TAG, "Correct answer selected");
                 answer.setTextColor(Color.GREEN);
                 answer.setText(R.string.Correct);
-                score = (10 - wrong) * 10;
+                score = score - (wrong * 10);
                 if (score < 0) {
                     score = 0;
                 }

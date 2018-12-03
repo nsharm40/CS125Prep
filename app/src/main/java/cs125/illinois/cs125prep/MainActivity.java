@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     /** Default logging tag for messages from the main activity. */
     private static final String TAG = "CS125Prep:Main";
-
+    protected static int score = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

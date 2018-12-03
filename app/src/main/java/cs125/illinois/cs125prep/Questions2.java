@@ -9,15 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Questions2 extends AppCompatActivity {
+public class Questions2 extends Questions {
 
     private static final String TAG = "CS125Prep:Questions2";
-    public static int score = Questions.score;
     private int wrong;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions2);
+        wrong = 0;
         final TextView answer2 = findViewById(R.id.answer2);
         answer2.setEnabled(false);
         final Button q2cont = findViewById(R.id.q2cont);
