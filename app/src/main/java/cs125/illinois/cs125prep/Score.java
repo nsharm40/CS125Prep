@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class Score extends Questions {
+public class Score extends Question5 {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,15 +16,15 @@ public class Score extends Questions {
         TextView scoreResult = findViewById(R.id.scoreResult);
         TextView motive = findViewById(R.id.motive);
         ImageView pic = findViewById(R.id.finImage);
-        scoreResult.setText("You got a score of " + score + " points!");
-        if (score > 90) {
+        scoreResult.setText("You had " + ret() + " incorrect clicks");
+        if (ret() < 1) {
             motive.setText("You have pleased the CS125 gods!");
             pic.setImageResource(R.drawable.chuchu);
-        } else if (score > 70) {
+        } else if (ret() < 3) {
             motive.setText("Keep it up! You're getting there!");
             pic.setImageResource(R.drawable.keep);
-        } else if (score > 50) {
-            motive.setText("Time to revisit some slides!");
+        } else if (ret() < 5) {
+            motive.setText("Time to revisit some CS125 slides!");
             pic.setImageResource(R.drawable.slides);
         } else {
             motive.setText("You might want to go to office horus...");
@@ -38,8 +38,11 @@ public class Score extends Questions {
             }
         });
     }
+
     void cont() {
+        score = 0;
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 }

@@ -2,6 +2,7 @@ package cs125.illinois.cs125prep;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +13,11 @@ import android.widget.TextView;
 public class Questions extends MainActivity {
 
     private static final String TAG = "CS125Prep:Questions";
-    private int wrong;
+    protected static int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        wrong = 0;
         setContentView(R.layout.activity_questions);
         final TextView answer = findViewById(R.id.answer);
         answer.setEnabled(false);
@@ -34,7 +34,7 @@ public class Questions extends MainActivity {
         q1a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer.setTextColor(Color.RED);
                 answer.setText(R.string.Incorrect);
@@ -47,10 +47,6 @@ public class Questions extends MainActivity {
                 Log.d(TAG, "Correct answer selected");
                 answer.setTextColor(Color.GREEN);
                 answer.setText(R.string.Correct);
-                score = score - (wrong * 10);
-                if (score < 0) {
-                    score = 0;
-                }
                 q1cont.setVisibility(View.VISIBLE);
             }
         });
@@ -58,7 +54,7 @@ public class Questions extends MainActivity {
         q1c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer.setTextColor(Color.RED);
                 answer.setText(R.string.Incorrect);
@@ -68,7 +64,7 @@ public class Questions extends MainActivity {
         q1d.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer.setTextColor(Color.RED);
                 answer.setText(R.string.Incorrect);
@@ -78,5 +74,13 @@ public class Questions extends MainActivity {
     void cont() {
         Intent intent = new Intent(this, Questions2.class);
         startActivity(intent);
+        myTTS.speak("What should the following method be renamed?",
+                TextToSpeech.QUEUE_FLUSH, null);
+    }
+    static void count() {
+        score++;
+    }
+    static int ret() {
+        return score;
     }
 }

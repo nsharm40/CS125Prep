@@ -2,6 +2,7 @@ package cs125.illinois.cs125prep;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,13 +13,10 @@ import android.widget.TextView;
 public class Questions2 extends Questions {
 
     private static final String TAG = "CS125Prep:Questions2";
-    private int wrong;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions2);
-        wrong = 0;
         final TextView answer2 = findViewById(R.id.answer2);
         answer2.setEnabled(false);
         final Button q2cont = findViewById(R.id.q2cont);
@@ -34,7 +32,7 @@ public class Questions2 extends Questions {
         q2a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer2.setTextColor(Color.RED);
                 answer2.setText(R.string.Incorrect);
@@ -44,7 +42,7 @@ public class Questions2 extends Questions {
         q2b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer2.setTextColor(Color.RED);
                 answer2.setText(R.string.Incorrect);
@@ -54,7 +52,7 @@ public class Questions2 extends Questions {
         q2c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                wrong++;
+                score++;
                 Log.d(TAG, "Incorrect answer selected");
                 answer2.setTextColor(Color.RED);
                 answer2.setText(R.string.Incorrect);
@@ -65,10 +63,6 @@ public class Questions2 extends Questions {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Correct answer selected");
-                score = (score - (wrong * 10));
-                if (score < 0) {
-                    score = 0;
-                }
                 answer2.setTextColor(Color.GREEN);
                 answer2.setText(R.string.Correct);
                 q2cont.setVisibility(View.VISIBLE);
@@ -76,7 +70,9 @@ public class Questions2 extends Questions {
         });
     }
     void cont() {
-        Intent intent = new Intent(this, Score.class);
+        Intent intent = new Intent(this, Question3.class);
         startActivity(intent);
+        myTTS.speak("What kind of language is java?",
+                TextToSpeech.QUEUE_FLUSH, null);
     }
 }
